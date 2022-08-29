@@ -1,6 +1,7 @@
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 import pandas as pd
+import numpy as np
 
 # criando as credenciais necessarias para editar a sheet
 SERVICE_ACCOUNT_FILE = 'keys.json'
@@ -22,11 +23,28 @@ def main():
 
     # Call the Sheets API
     sheet = service.spreadsheets()
+    # Escolhi a sheet e as linhas / colunas
     result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                                range="Acompanhamento!C1:BK11").execute()
+                                range="Acompanhamento!C2:BK2").execute()
+    # Pegando o valor de dentro das colunas
     values = result.get('values', [])
+    # criando um df
     df = pd.DataFrame(values)
-    print(df)
+    # transpondo as linhas para colunas
+    df = df.T
+    # dando um nome a coluna
+    df.columns = ['Linkedin']
+    df['Linkedin'].replace('', np.nan, inplace=True)
+    df.dropna(subset=['Linkedin'], inplace=True)
+    # limpando os links
+    linkedola = []
+    for link in df['Linkedin']:
+        variavel_split = link.split(':')
+        if variavel_split[0] == 'https':
+            linkedola.append(link)
+    
+
+    
     
 if __name__ == '__main__':
     main()
