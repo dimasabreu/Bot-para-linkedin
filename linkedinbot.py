@@ -145,7 +145,7 @@ def linkedin():
                     nota = driver.find_element(By.XPATH, "//button[@aria-label='Adicionar nota']")
                     nota.click()
                     time.sleep(2)
-                    texto = driver.find_element(By.ID, "custom-message").send_keys("Olá, elon me da uns bitico ai!")
+                    texto = driver.find_element(By.ID, "custom-message").send_keys("Olá, fazemos parte da mesma mentoria, conquiste sua vaga!")
                     time.sleep(2)
                     adicionar = driver.find_element(By.XPATH, "//button[@aria-label='Enviar agora']")
                     adicionar.click()
