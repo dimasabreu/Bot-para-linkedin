@@ -129,7 +129,7 @@ def linkedin():
     time.sleep(2)
     # mudando a pagina 
 
-    links = ['https://www.linkedin.com/in/gaurgopald/','https://www.linkedin.com/in/elon-musk-919012114/']#cleandata()
+    links = cleandata()
     for element in links:
         # colocando os linkedins na tela
         driver.get(element)
