@@ -10,5 +10,6 @@ Ao baixar o arquivo.zip crie um ambiente virtual para ele e use o txt para insta
 
 - pip install -r requirements.txt.
 
+## Veja na pratica como funciona:
 https://user-images.githubusercontent.com/95443404/187434566-4ce43770-bf99-449d-927c-1c66bc2fc630.mp4
 
